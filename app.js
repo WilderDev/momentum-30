@@ -12,6 +12,7 @@ const helment = require('helmet');
 const cors = require('cors');
 const xss = require('xss-clean');
 const rateLimiter = require('express-rate-limit');
+const cookieParser = require('cookie-parser');
 
 // * MIDDLEWARES
 app.set('trust proxy', 1);
@@ -22,17 +23,18 @@ app.use(
   }),
 ); // Rate Limited (Prevents Brute Force Attacks)
 app.use(express.json()); // Body Parser
+app.use(cookieParser(process.env.JWT_SECRET));
 app.use(helment()); // Header Security
 app.use(
   cors({
-    origin: 'http://localhost:4200',
+    origin: 'http://localhost:3000',
     credentials: true,
   }),
 ); // CORS
 app.use(xss()); // XSS
 
 // * ROUTES
-app.use('/api/v1/auth', require('./routes/auth.routes')); // TODO
+app.use('/api/v1/auth', require('./routes/auth.routes'));
 
 // * START SERVER & DB
 (async () => {
