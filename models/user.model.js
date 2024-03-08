@@ -1,7 +1,5 @@
 const {mongoose, Types} = require('mongoose')
 
-
-
 const userSchema = new mongoose.Schema( { 
     name: {
         type: String,
