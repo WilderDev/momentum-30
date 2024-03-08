@@ -2,7 +2,7 @@
 
 ## ICP
 
-- Beginners who want to workout, f\*\*\*\* simple.
+- Beginners who want to workout, super f\*\*\*\* simple.
 
 ## FEATURES
 
@@ -11,13 +11,15 @@
 3. Main Program
    1. Every "day" is an array of exercises (difficulty / Sets + Reps) -> These need to be balanced
    2. Up to 30 "days" but every day is randomized
-   3. If a user says "too difficult" -> drop down a "day" otherwise, move forward a "day"
-4. Notifications / Genuine Encouragement
-5. Accountability Pack
-   1. TBD
-6. Streaks
+   3. After Workout Form: If a user says "too difficult" -> drop down a "day" otherwise, move forward a "day"
+4. Accountability Pack
+   1. Gen Random Users
+   2. Notifications / Genuine Encouragement
+5. Streaks
    1. On App
    2. Emails
+6. Videos and Gifs
+7. Duration?
 
 ### Other Tasks
 
