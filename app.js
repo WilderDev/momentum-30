@@ -38,23 +38,23 @@ app.use(xss()) // XSS
 // * ROUTES
 app.use('/api/v1/auth', require('./routes/auth.routes')) // TODO
 
-// ! DEV
-app.get('/api/v1/bots', async (req, res) => {
-  const foundBots = await Bot.find()
-  return res.status(200).json(foundBots)
-})
-// ! DEV
-app.post('/api/v1/bots', async (req, res) => {
-  const person = randomPersonGen()
+// // ! DEV
+// app.get('/api/v1/bots', async (req, res) => {
+//   const foundBots = await Bot.find()
+//   return res.status(200).json(foundBots)
+// })
+// // ! DEV
+// app.post('/api/v1/bots', async (req, res) => {
+//   const person = randomPersonGen()
 
-  const newBot = await Bot.create(person)
-  return res.status(201).json(newBot)
-})
-// ! DEV
-app.delete('/api/v1/bots', async (req, res) => {
-  const deletedBot = await Bot.deleteMany({})
-  return res.status(200).json(deletedBot)
-})
+//   const newBot = await Bot.create(person)
+//   return res.status(201).json(newBot)
+// })
+// // ! DEV
+// app.delete('/api/v1/bots', async (req, res) => {
+//   const deletedBot = await Bot.deleteMany({})
+//   return res.status(200).json(deletedBot)
+// })
 
 // * START SERVER & DB
 ;(async () => {
