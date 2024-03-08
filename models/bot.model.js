@@ -20,25 +20,13 @@ const botModel = new Schema({
   },
   personality: {
     type: String,
-    enum: [
-      'Energetic',
-      'Joyful',
-      'Stressed',
-      'Calm',
-      'Hyped',
-      'Melancholic',
-      'Adventurous',
-      'Laid-back',
-      'Confident',
-      'Playful',
-    ],
+    enum: ['Energetic', 'Joyful', 'Stressed', 'Calm', 'Hyped', 'Melancholic', 'Adventurous', 'Laid-back', 'Confident', 'Playful',],
     required: true,
   },
   user: {
     type: Types.ObjectId,
     ref: 'User',
-    // ! TURN BACK ON ONCE GET USER MODEL
-    // required: true,
+    required: true,
   },
 })
 
