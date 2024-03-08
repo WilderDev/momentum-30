@@ -13,10 +13,6 @@ const cors = require('cors')
 const xss = require('xss-clean')
 const rateLimiter = require('express-rate-limit')
 
-// ! DEV
-const randomPersonGen = require('./lib/utils/randomPerson')
-const Bot = require('./models/bot.model')
-
 // * MIDDLEWARES
 app.set('trust proxy', 1)
 app.use(
@@ -37,24 +33,6 @@ app.use(xss()) // XSS
 
 // * ROUTES
 app.use('/api/v1/auth', require('./routes/auth.routes')) // TODO
-
-// // ! DEV
-// app.get('/api/v1/bots', async (req, res) => {
-//   const foundBots = await Bot.find()
-//   return res.status(200).json(foundBots)
-// })
-// // ! DEV
-// app.post('/api/v1/bots', async (req, res) => {
-//   const person = randomPersonGen()
-
-//   const newBot = await Bot.create(person)
-//   return res.status(201).json(newBot)
-// })
-// // ! DEV
-// app.delete('/api/v1/bots', async (req, res) => {
-//   const deletedBot = await Bot.deleteMany({})
-//   return res.status(200).json(deletedBot)
-// })
 
 // * START SERVER & DB
 ;(async () => {
