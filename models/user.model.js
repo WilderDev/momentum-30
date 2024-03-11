@@ -42,6 +42,16 @@ const UserSchema = new Schema({
 	passwordTokenExpireDate: {
 		type: Date,
 	},
+	streak: {
+		type: number,
+		default: 0,
+	},
+	experience: {
+		type: Number,
+		default: 1,
+		min: 1,
+		max: 30,
+	},
 });
 
 // Presave Password Hashing
@@ -67,7 +77,6 @@ UserSchema.methods.createToken = function () {
 // Compare incoming password to hashed password for validity
 UserSchema.methods.comparePassword = async function (incomingPassword) {
 	const isMatch = await bcrypt.compare(incomingPassword, this.password);
-
 	return isMatch;
 };
 
