@@ -10,6 +10,7 @@ const connectToMongo = require("./lib/db/mongoose-connect");
 // SECURITY
 const helment = require("helmet");
 const cors = require("cors");
+const mongoose = require("mongoose");
 const xss = require("xss-clean");
 const rateLimiter = require("express-rate-limit");
 

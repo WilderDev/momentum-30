@@ -12,7 +12,7 @@ const exerciseSchema = new mongoose.Schema( {
     },
     challengeRating: {
         type: String,
-        enum: ['1', '2', '3']
+        enum: ['1' = 10, '2' = 20, '3' = 30]
     },
     easyVariation: {
         name: {
