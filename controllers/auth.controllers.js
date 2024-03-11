@@ -11,10 +11,13 @@ const {
   sendResetPassswordEmail,
 } = require('../lib/emails/sendEmail');
 
+const {randomBotGen } = require('../lib/utils/randomBot');
+const Bot = require('../models/bot.model');
+
 // * CONTROLLERS
 // Register User
 const register = async (req, res) => {
-  const { email, name, password } = req.body;
+  const { email, username, password } = req.body;
 
   const emailAlreadyExists = await User.findOne({ email });
 
@@ -31,14 +34,48 @@ const register = async (req, res) => {
 
   const verificationToken = crypto.randomBytes(40).toString('hex');
 
+
   const user = await User.create({
-    name,
+    username,
     email,
     password,
     role,
     verificationToken,
   });
 
+   // Create Three Bots
+   const bot1 = randomBotGen();
+   const bot2 = randomBotGen();
+   const bot3 = randomBotGen();
+ 
+   // Make 3 Bots to tie to the account
+    await Bot.create({
+     name: bot1.name,
+     gender: bot1.gender,
+     age: bot1.age,
+     streak: bot1.streak,
+     pic: bot1.pic,
+     personality: bot1.personality,
+     user: user._id,
+   });
+   await Bot.create({ 
+     name: bot2.name,
+     gender: bot2.gender,
+     age: bot2.age,
+     streak: bot2.streak,
+     pic: bot2.pic,
+     personality: bot2.personality,
+     user: user._id,
+   })
+   await Bot.create({ 
+     name: bot3.name,
+     gender: bot3.gender,
+     age: bot3.age,
+     streak: bot3.streak,
+     pic: bot3.pic,
+     personality: bot3.personality,
+     user: user._id,
+   })
   // Front end origin
   const origin = process.env.FRONTEND_ORIGIN_URL ?? 'http://localhost:3000';
 
@@ -54,6 +91,7 @@ const register = async (req, res) => {
   return successfulRes({
     res,
     data: {
+      user: user,
       message: 'Success! Please check your email to veryify your account',
     },
   });

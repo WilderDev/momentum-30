@@ -4,6 +4,7 @@ require('express-async-errors');
 
 const express = require('express');
 const app = express();
+const Bot = require('./models/bot.model');
 
 const connectToMongo = require('./lib/db/mongoose-connect');
 
@@ -36,11 +37,14 @@ app.use(xss()); // XSS
 // * ROUTES
 app.use('/api/v1/auth', require('./routes/auth.routes'));
 
+// Chat Routes
+app.use('/api/v1/chat', require('./routes/chat.routes'));
+
 // * START SERVER & DB
 (async () => {
   try {
     await connectToMongo(process.env.MONGODB_URI); // 1. Start Database
-
+  
     app.listen(5000, () =>
       console.log(`Backend Listening @ ${process.env.SERVER_URL}`),
     ); // 2. Start Backend Server
