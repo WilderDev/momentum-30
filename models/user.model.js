@@ -1,5 +1,5 @@
 // * IMPORTS
-const { Schema } = require('mongoose');
+const { model, Schema } = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -72,4 +72,4 @@ UserSchema.methods.comparePassword = async function (incomingPassword) {
 };
 
 // * EXPORTS
-module.exports = mongoose.model('User', UserSchema);
+module.exports = model('User', UserSchema);

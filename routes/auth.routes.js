@@ -1,6 +1,6 @@
 // * IMPORTS
 const router = require('express').Router();
-const { authenticateUser } = require('../middleware/auth.middleware');
+const authMiddleware = require('../middleware/auth.middleware');
 
 const {
   register,
@@ -13,11 +13,11 @@ const {
 } = require('../controllers/auth.controllers');
 
 // * ROUTES
-router.get('/me', authenticateUser, me);
+router.get('/me', authMiddleware, me);
 router.post('/register', register);
 router.post('/login', login);
 router.post('/verify', verifyEmail);
-router.delete('/logout', authenticateUser, logout);
+router.delete('/logout', authMiddleware, logout);
 router.post('/forgot-password', forgotPassword);
 router.post('/reset-password', resetPassword);
 

@@ -4,17 +4,16 @@ const crypto = require('crypto');
 const User = require('./../models/User.model');
 const Token = require('./../models/token.model');
 
-const asyncWrapper = require('./../middleware/async-wrapper.middleware');
-const { attachCookiesToResponse } = require('./../utils/cookie');
-const { successfulRes, unsuccessfulRes } = require('../lib/response');
+const { attachCookiesToResponse } = require('../lib/utils/cookie');
+const { successfulRes, unsuccessfulRes } = require('../lib/utils/response');
 const {
   sendVerificationEmail,
   sendResetPassswordEmail,
-} = require('./../utils/email');
+} = require('../lib/emails/sendEmail');
 
 // * CONTROLLERS
 // Register User
-const register = asyncWrapper(async (req, res) => {
+const register = async (req, res) => {
   const { email, name, password } = req.body;
 
   const emailAlreadyExists = await User.findOne({ email });
@@ -58,10 +57,10 @@ const register = asyncWrapper(async (req, res) => {
       message: 'Success! Please check your email to veryify your account',
     },
   });
-});
+};
 
 // Verify Email
-const verifyEmail = asyncWrapper(async (req, res) => {
+const verifyEmail = async (req, res) => {
   const { verificationToken, email } = req.body; // Get token and email from the request
 
   const user = await User.findOne({ email }); // Get user by email
@@ -96,10 +95,10 @@ const verifyEmail = asyncWrapper(async (req, res) => {
     res,
     data: { message: 'Success! Email is now verified!' },
   });
-});
+};
 
 // Login User
-const login = asyncWrapper(async (req, res) => {
+const login = async (req, res) => {
   const { email, password } = req.body; // Get email and password from request
 
   if (!email || !password) {
@@ -197,10 +196,10 @@ const login = asyncWrapper(async (req, res) => {
 
   // Send response
   res.status(200).json({ user: tokenUser });
-});
+};
 
 // Current User
-const me = asyncWrapper(async (req, res) => {
+const me = async (req, res) => {
   // Exacting user from request
   const { user } = req;
 
@@ -208,10 +207,10 @@ const me = asyncWrapper(async (req, res) => {
     res,
     data: { user },
   });
-});
+};
 
 // Logout User
-const logout = asyncWrapper(async (req, res) => {
+const logout = async (req, res) => {
   // Extracting user from request and deleting token
   await Token.findOneAndDelete({ user: req.user.userId });
 
@@ -231,10 +230,10 @@ const logout = asyncWrapper(async (req, res) => {
     res,
     data: { message: 'User logged out successfully!' },
   });
-});
+};
 
 // Forgot Password
-const forgotPassword = asyncWrapper(async (req, res) => {
+const forgotPassword = async (req, res) => {
   // Extract email from request
   const { email } = req.body;
 
@@ -275,10 +274,10 @@ const forgotPassword = asyncWrapper(async (req, res) => {
     res,
     data: { message: 'Please check your email!' },
   });
-});
+};
 
 // Reset Password
-const resetPassword = asyncWrapper(async (req, res) => {
+const resetPassword = async (req, res) => {
   // Extract email, token, and password from request
   const { email, token, password } = req.body;
 
@@ -312,7 +311,7 @@ const resetPassword = asyncWrapper(async (req, res) => {
     res,
     data: { message: 'Password reset successfully!' },
   });
-});
+};
 
 // * EXPORTS
 module.exports = {

@@ -41,7 +41,7 @@ app.use('/api/v1/auth', require('./routes/auth.routes'));
   try {
     await connectToMongo(process.env.MONGODB_URI); // 1. Start Database
 
-    app.listen(process.env.PORT, () =>
+    app.listen(5000, () =>
       console.log(`Backend Listening @ ${process.env.SERVER_URL}`),
     ); // 2. Start Backend Server
   } catch (err) {
