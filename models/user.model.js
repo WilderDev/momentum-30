@@ -1,9 +1,13 @@
-const { Types, model, Schema } = require("mongoose");
+// * IMPORTS
+const { model, Schema } = require("mongoose");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
-const userSchema = new Schema({
-	name: {
+// * SCHEMA
+const UserSchema = new Schema({
+	username: {
 		type: String,
-		required: [true, "Please provide a name"],
+		required: [true, "Please provide a username"],
 		minlength: 3,
 		maxlength: 50,
 	},
@@ -21,30 +25,59 @@ const userSchema = new Schema({
 		required: [true, "Please provide a password"],
 		minlength: 6,
 	},
-	streak: {
-		type: Number,
-	},
-	experienceLevel: {
-		type: Number,
-	},
-	currentTier: {
+	role: {
 		type: String,
-		enum: ["1", "2", "3"],
+		enum: ["free", "user", "admin"],
+		default: "user",
 	},
-	teamGroup: [
-		{
-			type: Types.ObjectId,
-			ref: "Bot",
-		},
-	],
+	verificationToken: String,
+	isVerified: {
+		type: Boolean,
+		default: false,
+	},
+	verified: Date,
+	passwordToken: {
+		type: String,
+	},
+	passwordTokenExpireDate: {
+		type: Date,
+	},
 });
 
-userSchema.methods.gainExp = function (exp) {
+// Presave Password Hashing
+UserSchema.pre("save", async function () {
+	if (!this.isModified("password")) return;
+
+	const salt = await bcrypt.genSalt(10);
+
+	this.password = await bcrypt.hash(this.password, salt);
+});
+
+// Generate JWT With Schema Methods
+UserSchema.methods.createToken = function () {
+	return jwt.sign(
+		{ userId: this._id, name: this.name, role: this.role },
+		process.env.JWT_SECRET,
+		{
+			expiresIn: "1d",
+		}
+	);
+};
+
+// Compare incoming password to hashed password for validity
+UserSchema.methods.comparePassword = async function (incomingPassword) {
+	const isMatch = await bcrypt.compare(incomingPassword, this.password);
+
+	return isMatch;
+};
+
+UserSchema.methods.gainExp = function (exp) {
 	this.experienceLevel += exp;
 };
 
-userSchema.methods.loseExp = function (exp) {
+UserSchema.methods.loseExp = function (exp) {
 	this.experienceLevel -= exp;
 };
 
-module.exports = model("User", userSchema);
+// * EXPORTS
+module.exports = model("User", UserSchema);

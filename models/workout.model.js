@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Exercise = require("./exercise.model");
 
-const userWorkoutSchema = new mongoose.Schema(
+const UserWorkoutSchema = new mongoose.Schema(
 	{
 		userID: {
 			type: String,
@@ -22,7 +22,7 @@ const userWorkoutSchema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
-userWorkoutSchema.methods.generateExercisesList = async function (
+UserWorkoutSchema.methods.generateExercisesList = async function (
 	numExercises
 ) {
 	//TODO set difficulty
@@ -46,16 +46,16 @@ userWorkoutSchema.methods.generateExercisesList = async function (
 	);
 };
 
-userWorkoutSchema.methods.completeWorkout = function () {
+UserWorkoutSchema.methods.completeWorkout = function () {
 	this.success = true;
 	this.completedOn = new Date(Date.now());
 	return workoutExp;
 };
 
-userWorkoutSchema.methods.endWorkoutEarly = function () {
+UserWorkoutSchema.methods.endWorkoutEarly = function () {
 	this.success = false;
 	this.completedOn = new Date(Date.now());
-	return workoutExp * -0.5;
+	return workoutExp * -0;
 };
 
-module.exports = mongoose.model("UserWorkout", userWorkoutSchema);
+module.exports = mongoose.model("UserWorkout", UserWorkoutSchema);
