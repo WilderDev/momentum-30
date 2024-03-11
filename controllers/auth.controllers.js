@@ -1,7 +1,7 @@
 // * IMPORTS
 const crypto = require('crypto');
 
-const User = require('./../models/User.model');
+const User = require('../models/user.model');
 const Token = require('./../models/token.model');
 
 const { attachCookiesToResponse } = require('../lib/utils/cookie');
