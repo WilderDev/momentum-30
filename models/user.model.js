@@ -39,4 +39,12 @@ const userSchema = new Schema({
 	],
 });
 
+userSchema.methods.gainExp = function (exp) {
+	this.experienceLevel += exp;
+};
+
+userSchema.methods.loseExp = function (exp) {
+	this.experienceLevel -= exp;
+};
+
 module.exports = model("User", userSchema);
