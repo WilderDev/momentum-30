@@ -43,7 +43,7 @@ const UserSchema = new Schema({
 		type: Date,
 	},
 	streak: {
-		type: number,
+		type: Number,
 		default: 0,
 	},
 	experience: {
@@ -51,6 +51,9 @@ const UserSchema = new Schema({
 		default: 1,
 		min: 1,
 		max: 30,
+	},
+	lastWorkout: {
+		type: Date,
 	},
 });
 
@@ -86,6 +89,20 @@ UserSchema.methods.gainExp = function (exp) {
 
 UserSchema.methods.loseExp = function (exp) {
 	this.experienceLevel -= exp;
+};
+
+UserSchema.methods.checkStreak = function () {
+	const today = new Date();
+	today.setHours(0, 0, 0, 0);
+	const yesterday = new Date(today);
+	yesterday.setDate(yesterday.getDate() - 1);
+	const checkdate = new Date(lastWorkout);
+	checkdate.setHours(0, 0, 0, 0);
+	if (checkdate.getTime() === yesterday.getTime()) {
+		streak++;
+	} else {
+		streak = 0;
+	}
 };
 
 // * EXPORTS

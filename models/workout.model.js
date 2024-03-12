@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Exercise = require("./exercise.model");
+const User = requir("./user.model.js");
 
 const UserWorkoutSchema = new mongoose.Schema(
 	{
@@ -66,16 +67,30 @@ UserWorkoutSchema.methods.generateExercisesList = async function (
 	);
 };
 
-UserWorkoutSchema.methods.completeWorkout = function () {
+UserWorkoutSchema.methods.completeWorkout = async function () {
 	this.success = true;
 	this.completedOn = new Date(Date.now());
-	return workoutExp;
+	const user = await User.findOne({ _id: this.userID });
+	if (!user) {
+		return;
+	}
+	user.lastWorkout = this.completedOn;
+	user.save();
+
+	return this.workoutExp;
 };
 
-UserWorkoutSchema.methods.endWorkoutEarly = function () {
+UserWorkoutSchema.methods.endWorkoutEarly = async function () {
 	this.success = false;
 	this.completedOn = new Date(Date.now());
-	return workoutExp * -0.5;
+	const user = await User.findOne({ _id: this.userID });
+	if (!user) {
+		return;
+	}
+	user.lastWorkout = this.completedOn;
+	user.save();
+
+	return this.workoutExp * -0.5;
 };
 
 module.exports = mongoose.model("UserWorkout", UserWorkoutSchema);
