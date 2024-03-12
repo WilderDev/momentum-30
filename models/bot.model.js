@@ -28,6 +28,10 @@ const botModel = new Schema({
     ref: 'User',
     required: true,
   },
+  pic: {
+    type: String,
+    required: true,
+  }
 })
 
 // * EXPORTS * //
