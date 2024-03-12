@@ -10,6 +10,7 @@ const exerciseSchema = new mongoose.Schema(
 		},
 		targetedArea: {
 			type: String,
+			enum: ["UPPER", "LOWER", "CORE", "PLYOMETRIC"],
 		},
 		challengeRating: {
 			type: String,
