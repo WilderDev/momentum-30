@@ -96,7 +96,7 @@ UserSchema.methods.checkStreak = function () {
 	today.setHours(0, 0, 0, 0);
 	const yesterday = new Date(today);
 	yesterday.setDate(yesterday.getDate() - 1);
-	const checkdate = new Date(lastWorkout);
+	const checkdate = new Date(this.lastWorkout);
 	checkdate.setHours(0, 0, 0, 0);
 	if (checkdate.getTime() === yesterday.getTime()) {
 		streak++;
