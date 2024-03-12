@@ -38,6 +38,7 @@ app.use(xss()); // XSS
 app.use("/api/v1/auth", require("./routes/auth.routes")); // TODO
 app.use("/api/v1/workout", require("./routes/workout.routes")); // TODO
 app.use("/api/v1/user", require("./routes/workout.routes")); // TODO
+
 // Chat Routes
 app.use('/api/v1/chat', require('./routes/chat.routes'));
 
@@ -45,11 +46,11 @@ app.use('/api/v1/chat', require('./routes/chat.routes'));
 (async () => {
   try {
     await connectToMongo(process.env.MONGODB_URI); // 1. Start Database
-  
-		app.listen(5000, () =>
-			console.log(`Backend Listening @ ${process.env.SERVER_URL}`)
-		); // 2. Start Backend Server
-	} catch (err) {
-		console.log("ERROR:", err);
-	}
+
+    app.listen(5000, () =>
+      console.log(`Backend Listening @ ${process.env.SERVER_URL}`),
+    ); // 2. Start Backend Server
+  } catch (err) {
+    console.log('ERROR:', err);
+  }
 })();
