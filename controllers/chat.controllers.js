@@ -12,10 +12,7 @@ const openai = new OpenAI({
 chatWithBot = async (req, res) => {
     // get the user id from the users request
     const userId = req.user.userId;
-
-    console.log('userId:', userId);
     
-
     // find the bots that are tied to the user 
     const bots = await Bot.find({ user: userId });
 
@@ -24,9 +21,7 @@ chatWithBot = async (req, res) => {
 
     // get the message from the request body
     message = req.body.message;
-
-
-     // ! NEED A BETTER PROMT 
+    
   prompt = `Respond to the following message with a personality of ${randomBot.personality} : ${message}`
 
 
