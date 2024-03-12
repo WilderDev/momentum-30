@@ -5,7 +5,7 @@ const {
 	stopWorkout,
 } = require("../controllers/workout.controller");
 
-router.get("/start", startWorkout);
+router.get("/today", startWorkout);
 router.post("/complete/:id", completeWorkout);
 router.post("/failed/:id", stopWorkout);
 
