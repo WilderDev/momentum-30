@@ -10,7 +10,7 @@ const startWorkout = async (req, res) => {
 	const workout = await Workout.create({
 		userId: foundUser.id,
 	});
-	workout.generateExerciseList(numExercises);
+	workout.generateExerciseList(numExercises, foundUser);
 	await workout.save();
 	res.status(200).json({ success: true, data: { workout } });
 };
