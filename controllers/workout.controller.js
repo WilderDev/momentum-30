@@ -15,6 +15,12 @@ const startWorkout = async (req, res) => {
 	res.status(200).json({ success: true, data: { workout } });
 };
 
+// const createWorkout = async (req, res) => {
+// 	const {user} = req.body;
+
+// }
+
+
 const completeWorkout = async (req, res) => {
 	const { user } = req.body;
 	const foundUser = await User.findOne({ _id: user._id });

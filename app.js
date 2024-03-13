@@ -8,6 +8,10 @@ const Bot = require('./models/bot.model');
 
 const connectToMongo = require("./lib/db/mongoose-connect");
 
+// !DEV
+// const Exercise = require('./models/exercise.model')
+// const exercises = require('./exercises.json')
+
 // SECURITY
 const helment = require('helmet');
 const cors = require('cors');

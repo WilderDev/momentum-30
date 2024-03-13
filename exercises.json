@@ -1,0 +1,287 @@
+[
+    {   "name": "Push Ups",
+        "targetedArea": "Upper Body",
+        "workoutCountType": "Reps",
+        "challengeRating": "1",
+        "regularVariation": 
+        { "name": "Push Ups",
+        "videoURL": "https://www.youtube.com/embed/7NUICnha_Hk"},
+        "easyVariation": 
+        { "name": "Knee Push Ups",
+        "videoURL": "https://www.youtube.com/embed/PDr5B2jLUOw"},
+        "hardVariation": 
+        { "name": "Feet Elevated Push Ups",
+        "videoURL": "https://www.youtube.com/embed/aq2xZxfrQlM"
+        }
+    },
+    {   "name": "Dips",
+        "targetedArea": "Upper Body",
+        "workoutCountType": "Reps",
+        "challengeRating": "1",
+        "regularVariation": 
+        { "name": "Dips",
+        "videoURL": "https://www.youtube.com/embed/xSjzOF4s4Fc"},
+        "easyVariation": 
+            {"name": "Bent Knee Chair Dips",
+            "videoURL": "https://www.youtube.com/embed/WVeZDBhZwLA"},
+        "hardVariation":
+            {"name": "One Leg Chair Dips",
+            "videoURL": "https://www.youtube.com/embed/1WSzI2u_xRc"}
+    },
+    {   "name": "Side Planks",
+        "targetedArea":"Upper Body",
+        "workoutCountType": "Time",
+        "challengeRating": "2",
+        "regularVariation":
+        {"name": "Side Planks",
+        "videoURL": "https://www.youtube.com/embed/9dNL_mtObGQ"},
+        "easyVariation":
+            {"name": "Knee Side Planks",
+            "videoURL": "https://www.youtube.com/embed/9Y-z2xbSsqc"},
+        "hardVariation":
+            {"name": "Elevated Side Plank",
+            "videoURL": "https://www.youtube.com/embed/r4yMtDnN6ls"}
+    },
+    {   "name":"Diamond Push Ups",
+        "targetedArea":"Upper Body",
+        "workoutCountType": "Reps",
+        "challengeRating": "2",
+        "regularVariation":
+        {"name": "Diamond Push Ups",
+        "videoURL": "https://www.youtube.com/embed/XtU2VQVuLYs"},
+        "easyVariation":
+            {"name": "Knee Diamond Push Ups",
+             "videoURL": "https://www.youtube.com/embed/_PM-c9SIg9w"},
+        "hardVariation":
+            {"name": "Feet Elevated Diamond Pushups",
+             "videoURL": "https://www.youtube.com/embed/xIuP-C5aMLQ"}
+    },
+    {   "name": "Dive Bomber Push Ups",
+        "targetedArea":"Upper Body",
+        "workoutCountType": "Reps",
+        "challengeRating": "3",
+        "regularVariation":
+        {"name": "Dive Bomber Push Ups",            
+        "videoURL": "https://www.youtube.com/embed/mvNcSF-nXg4"},
+        "easyVariation":
+        {"name": "Half Hindu Push Ups",
+            "videoURL":"https://www.youtube.com/embed/sAfrEC9OkGs"},
+        "hardVariation":
+        {"name": "One Leg Dive Bombers",
+            "videoURL": "https://www.youtube.com/embed/Les7OXAVSVg"}
+    },
+    {   "name": "Calf Raises",
+        "targetedArea": "Lower Body",
+        "workoutCountType": "Reps",
+        "challengeRating": "1",
+        "regularVariation":
+        {"name": "Calf Raises",
+        "videoURL": "https://www.youtube.com/embed/cqDMYUaIXvw"},
+        "easyVariation":
+        {"name":"Seated Calf Raise",
+            "videoURL":"https://www.youtube.com/embed/3ZRe_QpvRPg"},
+        "hardVariation": 
+        {"name":"One Leg Calf Raise",
+            "videoURL":"https://www.youtube.com/embed/OG3OgpXsirQ"}
+
+    },
+    {   "name": "Squats",
+        "targetedArea": "Lower Body",
+        "workoutCountType": "Reps",
+        "challengeRating":"1",
+        "regularVariation":
+        {"name": "Squats",
+        "videoURL": "https://www.youtube.com/embed/dC0yGLZwxas"},
+        "easyVariation":
+        {"name": "Box Squat",
+            "videoURL": "https://www.youtube.com/embed/-GaRp6_b2vk"},
+        "hardVariation":
+        {"name": "Single Leg Squat Touchdown",
+            "videoURL": "https://www.youtube.com/embed/aFttN9JV0Rg"}
+    },
+    {   "name": "Wall Sits",
+        "targetedArea": "Lower Body",
+        "workoutCountType": "Time",
+        "challengeRating":"2",
+        "regularVariation":
+        {"name": "Wall Sits",
+        "videoURL": "https://www.youtube.com/embed/cWTZ8Am1Ee0"},
+        "easyVariation":
+        {"name": "45 Degree Wall Sit",
+        "videoURL": "https://www.youtube.com/embed/4RzQBo6TzR4"},
+        "hardVariation":
+        {"name": "Single Leg Wall Sit",
+        "videoURL": "https://www.youtube.com/embed/pdWD9gvAGps"}
+
+    },
+    {   "name": "Walking Lunges",
+        "targetedArea": "Lower Body",
+        "workoutCountType": "Reps",
+        "challengeRating":"2",
+        "regularVariation":
+        {"name": "Walking Lunges",
+        "videoURL": "https://www.youtube.com/embed/L8fvypPrzzs"},
+        "easyVariation":
+        {"name": "Forward Lunge",
+        "videoURL": "https://www.youtube.com/embed/MxfTNXSFiYI"},
+        "hardVariation":
+        {"name": "Lunge Jump",
+        "videoURL": "https://www.youtube.com/embed/iJMsF7fzrOM"}
+
+    },
+    {   "name": "Russian Leg Curls",
+        "targetedArea": "Lower Body",
+        "workoutCountType": "Reps",
+        "challengeRating":"3",
+        "regularVariation":
+        {"name": "Russian Leg Curls",
+        "videoURL": "https://www.youtube.com/embed/jydIY4sX8tE"},
+        "easyVariation":
+        {"name": "Swiss Ball Hamstring Curl",
+        "videoURL": "https://www.youtube.com/embed/XkESHgkTdFw"},
+        "hardVariation":
+        {"name": "Weighted Nordic Curl",
+        "videoURL": "https://www.youtube.com/embed/8cXKTEircPo"}
+    },
+    {   "name": "Crunches",
+        "targetedArea": "Core",
+        "workoutCountType": "Reps",
+        "challengeRating":"1",
+        "regularVariation":
+        {"name": "Crunches",
+        "videoURL": "https://www.youtube.com/embed/O0pIQ2UqeCY"},
+        "easyVariation":
+        {"name": "Standing Crunch",
+        "videoURL": "https://www.youtube.com/embed/5ML2xf_gSFE"},
+        "hardVariation":
+        {"name": "Reverse Crunch",
+        "videoURL": "https://www.youtube.com/embed/gAyTBB4lm3I"}
+    },
+    {   "name": "Bicycle Crunches",
+        "targetedArea": "Core",
+        "workoutCountType": "Reps",
+        "challengeRating":"1",
+        "regularVariation":
+        {"name": "Bicycle Crunches",
+        "videoURL": "https://www.youtube.com/embed/1we3bh9uhqY"},
+        "easyVariation":
+        {"name": "Seated Bicycle Crunch",
+        "videoURL": "https://www.youtube.com/embed/RTLchezInqI"},
+        "hardVariation":
+        {"name": "Weighted Bicycle Crunch",
+        "videoURL": "https://www.youtube.com/embed/uvPlCp9yRPE"}
+    },
+    {   "name": "Sit Ups",
+        "targetedArea": "Core",
+        "workoutCountType": "Reps",
+        "challengeRating":"2",
+        "regularVariation":
+        {"name": "Sit Ups",
+        "videoURL": "https://www.youtube.com/embed/pCX65Mtc_Kk"},
+        "easyVariation":
+        {"name": "Wide Leg Sit Ups",
+        "videoURL": "https://www.youtube.com/embed/j49-cieCEeo"},
+        "hardVariation":
+        {"name": "Dragon Flag Sit Up",
+        "videoURL": "https://www.youtube.com/embed/U5pviWt7sMo"}
+    },
+    {   "name": "Russian Twists",
+        "targetedArea": "Core",
+        "workoutCountType": "Reps",
+        "challengeRating":"2",
+        "regularVariation":
+        {"name": "Russian Twists",
+        "videoURL": "https://www.youtube.com/embed/JyUqwkVpsi8"},
+        "easyVariation":
+        {"name": "Simple Twists",
+        "videoURL": "https://www.youtube.com/embed/4wNNCQj2mV4"},
+        "hardVariation":
+        {"name": "Punching Russian Twists",
+        "videoURL": "https://www.youtube.com/embed/NW7l6vYMwu8"}
+    },
+    {   "name": "Planks",
+        "targetedArea": "Core",
+        "workoutCountType": "Time",
+        "challengeRating":"3",
+        "regularVariation":
+        {"name": "Planks",
+        "videoURL": "https://www.youtube.com/embed/xhk1JkbF2lg"},
+        "easyVariation":
+        {"name": "Knee Planks",
+        "videoURL": "https://www.youtube.com/embed/Q2MbIzmkcho"},
+        "hardVariation":
+        {"name": "Plank Walk",
+        "videoURL": "https://www.youtube.com/embed/1mPOD3IZxlI"}
+    },
+    {   "name": "Jumping Jacks",
+        "targetedArea": "Plyometrics",
+        "workoutCountType": "Time",
+        "challengeRating":"1",
+        "regularVariation":
+        {"name": "Jumping Jacks",
+        "videoURL": "https://www.youtube.com/embed/iSSAk4XCsRA"},
+        "easyVariation":
+        {"name": "Step Jacks",
+        "videoURL": "https://www.youtube.com/embed/JHdVMkRBuRA"},
+        "hardVariation":
+        {"name": "Squat Jacks",
+        "videoURL": "https://www.youtube.com/embed/LK3jSsdQ7M4"}
+    },
+    {   "name": "Mountain Climbers",
+        "targetedArea": "Plyometrics",
+        "workoutCountType": "Time",
+        "challengeRating":"1",
+        "regularVariation":
+        {"name": "Mountain Climbers",
+        "videoURL": "https://www.youtube.com/embed/ruQ4ZwncXBg"},
+        "easyVariation":
+        {"name": "High Knees",
+        "videoURL": "https://www.youtube.com/embed/oDdkytliOqE"},
+        "hardVariation":
+        {"name": "Cross Body Mountain Climbers",
+        "videoURL": "https://www.youtube.com/embed/1cwZ8VZvRjc"}
+    },
+    {   "name": "Lateral Jumps",
+        "targetedArea": "Plyometrics",
+        "workoutCountType": "Time",
+        "challengeRating":"2",
+        "regularVariation":
+        {"name": "Lateral Jumps",
+        "videoURL": "https://www.youtube.com/embed/wPZP8Bwxplo"},
+        "easyVariation":
+        {"name": "Single Leg Lateral Hop",
+        "videoURL": "https://www.youtube.com/embed/BW_JkqzRtVM"},
+        "hardVariation":
+        {"name": "Lateral Tuck Jumps",
+        "videoURL": "https://www.youtube.com/embed/iYKwKVMiPk8"}
+    },
+    {   "name": "Bear Crawls",
+        "targetedArea": "Plyometrics",
+        "workoutCountType": "Time",
+        "challengeRating":"2",
+        "regularVariation":
+        {"name": "Bear Crawls",
+        "videoURL": "https://www.youtube.com/embed/t8XLor7unqU"},
+        "easyVariation":
+        {"name": "Lift and Hold Opposing Limbs",
+        "videoURL": "https://www.youtube.com/embed/kNH_caIpB5w"},
+        "hardVariation":
+        {"name": "Forward, Reverse, and Lateral Bear Crawl",
+        "videoURL": "https://www.youtube.com/embed/01ZCogpIFo4"}
+    },
+    {   "name": "Burpees",
+        "targetedArea": "Plyometrics",
+        "workoutCountType": "Time",
+        "challengeRating":"3",
+        "regularVariation":
+        {"name": "Burpees",
+        "videoURL": "https://www.youtube.com/embed/auBLPXO8Fww"},
+        "easyVariation":
+        {"name": "Beginner Burpees",
+        "videoURL": "https://www.youtube.com/embed/9yiWAgm3DSU"},
+        "hardVariation":
+        {"name": "Spider Burpees",
+        "videoURL": "https://www.youtube.com/embed/5YwIVhwWYYQ"}
+    }
+        
+]

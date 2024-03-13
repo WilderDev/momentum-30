@@ -5,15 +5,20 @@ const exerciseSchema = new mongoose.Schema(
 		name: {
 			type: String,
 		},
-		videoURL: {
-			type: String,
-		},
 		targetedArea: {
 			type: String,
+		},
+		workoutCountType: {
+			type: String,
+			enum: ["Reps", "Time"]
 		},
 		challengeRating: {
 			type: String,
 			enum: ["1", "2", "3"],
+		},
+		regularVariation: {
+			name: {type: String},
+			videoUrl: {type: String}
 		},
 		easyVariation: {
 			name: {
