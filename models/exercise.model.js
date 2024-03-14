@@ -7,6 +7,7 @@ const exerciseSchema = new mongoose.Schema(
 		},
 		targetedArea: {
 			type: String,
+			enum: ["Upper Body", "Lower Body", "Core", "Plyometrics"]
 		},
 		workoutCountType: {
 			type: String,
@@ -18,7 +19,7 @@ const exerciseSchema = new mongoose.Schema(
 		},
 		regularVariation: {
 			name: {type: String},
-			videoUrl: {type: String}
+			videoURL: {type: String}
 		},
 		easyVariation: {
 			name: {

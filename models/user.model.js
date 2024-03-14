@@ -30,6 +30,17 @@ const UserSchema = new Schema({
     enum: ['free', 'user', 'admin'],
     default: 'user',
   },
+  experienceLevel: {
+    type: Number,
+    min: 1,
+    max: 30,
+    required: true,
+    default: 1
+  },
+  streak: {
+    type: Number,
+    default: 0
+  },
   verificationToken: String,
   isVerified: {
     type: Boolean,
