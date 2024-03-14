@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Exercise = require("./Exercise.model");
-const { use } = require("express/lib/router");
 const User = requir("./user.model.js");
 
 const UserWorkoutSchema = new mongoose.Schema(
