@@ -1,6 +1,6 @@
 const User = require("../models/user.model");
-const userWorkout = require("../models/workout.model");
-const Exercise = require('../models/exercise.model')
+// const userWorkout = require("../models/Worko");
+const Exercise = require('../models/Exercise.model')
 const random = require("../lib/utils/helpers")
 
 

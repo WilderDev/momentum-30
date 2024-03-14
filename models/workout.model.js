@@ -1,5 +1,5 @@
 const {mongoose, Types} = require("mongoose");
-const Exercise = require("./exercise.model");
+const Exercise = require("./Exercise.model");
 const random = require('../lib/utils/helpers');
 
 const mongoose = require("mongoose");
@@ -75,6 +75,10 @@ const UserWorkoutSchema = new mongoose.Schema(
 // 	this.completedOn = new Date(Date.now());
 // 	return workoutExp * -0;
 // };
+
+
+
+
 UserWorkoutSchema.methods.generateExercisesList = async function (
 	numExercises,
 	user
@@ -84,6 +88,9 @@ UserWorkoutSchema.methods.generateExercisesList = async function (
 	const lastWorkout = user.lastWorkout;
 	lastWorkout.setHours(0, 0, 0, 0);
 	this.exercises = [];
+
+
+	
 	const usedIndexes = new Set();
 	const usedTargetedAreas = new Set();
 	const allExercises = await Exercise.find({});
