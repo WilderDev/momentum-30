@@ -77,15 +77,8 @@ UserSchema.methods.createToken = function () {
 // Compare incoming password to hashed password for validity
 UserSchema.methods.comparePassword = async function (incomingPassword) {
 	const isMatch = await bcrypt.compare(incomingPassword, this.password);
+
 	return isMatch;
-};
-
-UserSchema.methods.gainExp = function (exp) {
-	this.experienceLevel += exp;
-};
-
-UserSchema.methods.loseExp = function (exp) {
-	this.experienceLevel -= exp;
 };
 
 // * EXPORTS
