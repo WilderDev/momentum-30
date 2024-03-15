@@ -1,4 +1,4 @@
-const User = require("../models/user.model");
+const User = require("../models/User.model");
 
 // const levelUp = async (req, res) => {
 //     const {user} = req.body;
