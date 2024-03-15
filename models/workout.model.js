@@ -48,10 +48,11 @@ UserWorkoutSchema.methods.generateExercisesList = async function (
 		const plyoExercise = await Exercise.find({ targetedArea: "Plyometrics", challengeRating: "1"});
 		const chosenPlyo = random(plyoExercise)
 
-		const repTimeUp = await repTime(chosenUpper.workoutCountType, expLevel, 1)
-		const repTimeLow = await repTime(chosenLower.workoutCountType, expLevel, 1)
-		const repTimeCore = await repTime(chosenCore.workoutCountType, expLevel, 1)
-		const repTimePlyo = await repTime(chosenPlyo.workoutCountType, expLevel, 1)
+
+		const repTimeUp =  repTime(chosenUpper.workoutCountType, expLevel, 1)
+		const repTimeLow = repTime(chosenLower.workoutCountType, expLevel, 1)
+		const repTimeCore = repTime(chosenCore.workoutCountType, expLevel, 1)
+		const repTimePlyo = repTime(chosenPlyo.workoutCountType, expLevel, 1)
 
 		const workoutList = [{exercise: chosenUpper, rep: repTimeUp}, {exercise: chosenLower, rep: repTimeLow}, {exercise: chosenCore, rep: repTimeCore}, {exercise: chosenPlyo, rep: repTimePlyo}]
 
@@ -93,47 +94,8 @@ UserWorkoutSchema.methods.generateExercisesList = async function (
 		const workoutList = [{exercise: chosenUpper, rep: repTimeUp}, {exercise: chosenLower, rep: repTimeLow}, {exercise: chosenCore, rep: repTimeCore}, {exercise: chosenPlyo, rep: repTimePlyo}, {exercise: chosenUpper, rep: repTimeUp}, {exercise: chosenLower, rep: repTimeLow}, {exercise: chosenCore, rep: repTimeCore}, {exercise: chosenPlyo, rep: repTimePlyo}, {exercise: chosenUpper, rep: repTimeUp}, {exercise: chosenLower, rep: repTimeLow}, {exercise: chosenCore, rep: repTimeCore}, {exercise: chosenPlyo, rep: repTimePlyo}]
 
 		return workoutList
-	
-	// const usedIndexes = new Set();
-	// const usedTargetedAreas = new Set();
-	// const allExercises = await Exercise.find({});
-	// if (today > lastWorkout) {
-	// 	while (this.exercises < numExercises) {
-	// 		const randNum = Math.floor(Math.random() * allExercises.length);
-	// 		if (!usedIndexes.has(randNum)) {
-	// 			if (!usedTargetedAreas.has(allExercises[randNum].targetedArea)) {
-	// 				if (user.experience <= 10) {
-	// 					if (allExercises[randNum].challengeRating === 1) {
-	// 						this.exercises.push(allExercises[randNum]);
-	// 					}
-	// 				} else if (user.experience > 10 && user.experience <= 20) {
-	// 					if (
-	// 						allExercises[randNum].challengeRating === 1 &&
-	// 						allExercises[randNum].challengeRating === 2
-	// 					) {
-	// 						this.exercises.push(allExercises[randNum]);
-	// 					}
-	// 				} else {
-	// 					if (
-	// 						allExercises[randNum].challengeRating === 1 &&
-	// 						allExercises[randNum].challengeRating === 2 &&
-	// 						allExercises[randNum].challengeRating === 3
-	// 					) {
-	// 						this.exercises.push(allExercises[randNum]);
-	// 					}
-	// 				}
-
-	// 				usedTargetedAreas.add(this.allExercises[randNum].targetedArea);
-	// 			}
-	// 			usedIndexes.add(randNum);
-	// 		}
-	// 	}
-	// 	this.workoutExp = this.exercises.reduce(
-	// 		(acc, exerciseReps) =>
-	// 			acc + exerciseReps.exercise.experience * exerciseReps.reps
-	// 	);
-	// }
-}
+	}
+};
 
 	UserWorkoutSchema.methods.completeWorkout = async function () {
 		this.success = true;
@@ -160,6 +122,5 @@ UserWorkoutSchema.methods.generateExercisesList = async function (
 
 		return this.workoutExp * -0.5;
 	};
-};
 
 module.exports = mongoose.model("UserWorkout", UserWorkoutSchema);
