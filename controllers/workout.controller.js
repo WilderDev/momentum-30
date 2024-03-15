@@ -1,7 +1,7 @@
-
-const User = require("../models/user.model")
-const Workout = require("../models/workout.model");
-// const Exercise = require('../models/Exercise.model')
+const User = require("../models/User.model");
+const Workout = require("../models/Workout.model");
+// const userWorkout = require("../models/Worko");
+const Exercise = require('../models/Exercise.model')
 const random = require("../lib/utils/helpers")
 
 
