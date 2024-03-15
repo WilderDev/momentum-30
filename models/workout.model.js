@@ -1,9 +1,7 @@
 const {mongoose, Types} = require("mongoose");
-const Exercise = require("./Exercise.model.js");
-const random = require('../lib/utils/helpers.js');
-
-const Exercise = require("./Exercise.model.js");
-const User = require("./User.model.js");
+const Exercise = require("./Exercise.model");
+const {random, repTime} = require('../lib/utils/helpers');
+const User = require("./user.model");
 
 const UserWorkoutSchema = new mongoose.Schema(
 	{
@@ -32,10 +30,10 @@ const UserWorkoutSchema = new mongoose.Schema(
 UserWorkoutSchema.methods.generateExercisesList = async function (
 	user
 ) {
-	const today = new Date();
-	today.setHours(0, 0, 0, 0);
-	const lastWorkout = user.lastWorkout;
-	lastWorkout.setHours(0, 0, 0, 0);
+	// const today = new Date();
+	// today.setHours(0, 0, 0, 0);
+	// const lastWorkout = user.lastWorkout;
+	// lastWorkout.setHours(0, 0, 0, 0);
 	const expLevel = user.experienceLevel
 	this.exercises = [];
 
@@ -57,7 +55,7 @@ UserWorkoutSchema.methods.generateExercisesList = async function (
 
 		const workoutList = [{exercise: chosenUpper, rep: repTimeUp}, {exercise: chosenLower, rep: repTimeLow}, {exercise: chosenCore, rep: repTimeCore}, {exercise: chosenPlyo, rep: repTimePlyo}]
 
-		return await workoutList
+		return workoutList
 	}
 	else if (expLevel >=11 && expLevel <=20) {
 		const upperExercise = await Exercise.find({targetedArea: "Upper Body", challengeRating: ["1", "2"]})
@@ -75,7 +73,7 @@ UserWorkoutSchema.methods.generateExercisesList = async function (
 		const repTimePlyo = await repTime(chosenPlyo.workoutCountType, expLevel, .75)
 
 		const workoutList = [{exercise: chosenUpper, rep: repTimeUp}, {exercise: chosenLower, rep: repTimeLow}, {exercise: chosenCore, rep: repTimeCore}, {exercise: chosenPlyo, rep: repTimePlyo}, {exercise: chosenUpper, rep: repTimeUp}, {exercise: chosenLower, rep: repTimeLow}, {exercise: chosenCore, rep: repTimeCore}, {exercise: chosenPlyo, rep: repTimePlyo}]
-		return await workoutList
+		return workoutList
 	}
 	else {
 		const upperExercise = await Exercise.find({targetedArea: "Upper Body", challengeRating: ["1", "2", "3"]})
@@ -94,7 +92,7 @@ UserWorkoutSchema.methods.generateExercisesList = async function (
 
 		const workoutList = [{exercise: chosenUpper, rep: repTimeUp}, {exercise: chosenLower, rep: repTimeLow}, {exercise: chosenCore, rep: repTimeCore}, {exercise: chosenPlyo, rep: repTimePlyo}, {exercise: chosenUpper, rep: repTimeUp}, {exercise: chosenLower, rep: repTimeLow}, {exercise: chosenCore, rep: repTimeCore}, {exercise: chosenPlyo, rep: repTimePlyo}, {exercise: chosenUpper, rep: repTimeUp}, {exercise: chosenLower, rep: repTimeLow}, {exercise: chosenCore, rep: repTimeCore}, {exercise: chosenPlyo, rep: repTimePlyo}]
 
-		return await workoutList
+		return workoutList
 	
 	// const usedIndexes = new Set();
 	// const usedTargetedAreas = new Set();
