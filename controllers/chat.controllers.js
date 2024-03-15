@@ -48,12 +48,12 @@ chatWithBot = async (req, res) => {
             this message will be about working out`;
 
 
-  // const response = await openai.chat.completions.create({
-  //     model: 'gpt-3.5-turbo', 
-  //     messages: [ {"role": "user", "content": `${prompt}`}],
-  //     max_tokens: 2048, 
-  //     temperature: 1, 
-  // })
+  const response = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo', 
+      messages: [ {"role": "user", "content": `${prompt}`}],
+      max_tokens: 2048, 
+      temperature: 1, 
+  })
   
  // save the bots message to the database
  const bot = await Message.create({
@@ -82,12 +82,14 @@ getMessageHistory = async (req, res) => {
   const userId = req.user.userId;
   
   // find all the messages that are tied to the user
-  const messages = await Message.deleteMany({});
+  const messages = await Message.find({ user: userId });
 
-  return successfulRes({ res, data: messages });
+  const sortedMessages = messages.sort((a, b) => a.createdAt - b.createdAt).slice(-4);
+
+  return successfulRes({ res, data: sortedMessages });
 }
-// * EXPORTS * //
 
+// * EXPORTS * //
 module.exports = {
   chatWithBot,
   getMessageHistory
