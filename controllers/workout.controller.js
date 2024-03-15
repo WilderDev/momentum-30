@@ -1,5 +1,5 @@
-const User = require("../models/user.model");
-const Workout = require("../models/workout.model");
+const User = require("../models/User.model");
+const Workout = require("../models/Workout.model");
 
 const startWorkout = async (req, res) => {
 	const { user, numExercises } = req.body;

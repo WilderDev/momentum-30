@@ -1,7 +1,7 @@
 // * IMPORTS
 const crypto = require('crypto');
 
-const User = require('../models/user.model');
+const User = require('../models/User.model');
 const Token = require('./../models/token.model');
 
 const { attachCookiesToResponse } = require('../lib/utils/cookie');
@@ -12,7 +12,7 @@ const {
 } = require('../lib/emails/sendEmail');
 
 const {randomBotGen } = require('../lib/utils/randomBot');
-const Bot = require('../models/bot.model');
+const Bot = require('../models/Bot.model');
 
 // * CONTROLLERS
 // Register User
@@ -178,7 +178,7 @@ const login = async (req, res) => {
   }
 
   // Create a token user to send to the front end
-  const tokenUser = { name: user.name, userId: user._id, role: user.role };
+  const tokenUser = { name: user.username, userId: user._id, role: user.role };
 
   // Create refresh token
   let refreshToken = '';

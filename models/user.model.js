@@ -43,7 +43,7 @@ const UserSchema = new Schema({
 		type: Date,
 	},
 	streak: {
-		type: number,
+		type: Number,
 		default: 0,
 	},
 	experience: {
@@ -52,6 +52,12 @@ const UserSchema = new Schema({
 		min: 1,
 		max: 30,
 	},
+	messages: [
+		{
+		type: Schema.Types.ObjectId,
+        ref: "Message",
+        },
+]
 });
 
 // Presave Password Hashing

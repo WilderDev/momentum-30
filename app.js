@@ -4,7 +4,7 @@ require("express-async-errors");
 
 const express = require("express");
 const app = express();
-const Bot = require('./models/bot.model');
+const Bot = require('./models/Bot.model');
 
 const connectToMongo = require("./lib/db/mongoose-connect");
 
@@ -14,6 +14,7 @@ const cors = require('cors');
 const xss = require('xss-clean');
 const rateLimiter = require('express-rate-limit');
 const cookieParser = require('cookie-parser');
+const {randomBotGen } = require('./lib/utils/randomBot');
 
 // * MIDDLEWARES
 app.set("trust proxy", 1);
@@ -46,7 +47,7 @@ app.use('/api/v1/chat', require('./routes/chat.routes'));
 (async () => {
   try {
     await connectToMongo(process.env.MONGODB_URI); // 1. Start Database
-
+    
     app.listen(5000, () =>
       console.log(`Backend Listening @ ${process.env.SERVER_URL}`),
     ); // 2. Start Backend Server
