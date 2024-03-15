@@ -1,12 +1,7 @@
 const {mongoose, Types} = require("mongoose");
 const Exercise = require("./Exercise.model");
-const random = require('../lib/utils/helpers');
-
-const mongoose = require("mongoose");
-const Exercise = require("./Exercise.model");
 const User = require("./User.model.js");
 const {random, repTime} = require('../lib/utils/helpers');
-const User = require("./user.model");
 
 const UserWorkoutSchema = new mongoose.Schema(
 	{
