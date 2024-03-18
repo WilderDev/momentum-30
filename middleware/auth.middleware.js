@@ -1,9 +1,8 @@
 // * IMPORTS
 const jwt = require('jsonwebtoken');
 const { unsuccessfulRes } = require('../lib/utils/response');
-const Token = require('./../models/token.model');
 const { attachCookiesToResponse } = require('../lib/utils/cookie');
-
+const Token = require('./../models/Token.model');
 // * MIDDLEWARE
 // Middleware to Grab & Check JWT from Auth Headers
 async function authMiddleware(req, res, next) {
