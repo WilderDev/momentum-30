@@ -2,7 +2,7 @@
 const crypto = require('crypto');
 
 const User = require('../models/User.model');
-const Token = require('./../models/token.model');
+const Token = require('./../models/Token.model');
 
 const { attachCookiesToResponse } = require('../lib/utils/cookie');
 const { successfulRes, unsuccessfulRes } = require('../lib/utils/response');
