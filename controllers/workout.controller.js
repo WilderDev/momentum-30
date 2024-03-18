@@ -1,7 +1,5 @@
 const User = require("../models/user.model");
-// const userWorkout = require("../models/Worko");
 const Exercise = require("../models/Exercise.model");
-const random = require("../lib/utils/helpers");
 
 // Unsure About This One
 const startWorkout = async (req, res) => {
@@ -21,12 +19,12 @@ const startWorkout = async (req, res) => {
 
 // Creates Workout Based on Experience Level and Provides Reps/Sets
 const createWorkout = async (req, res) => {
-	// const {user} = req.body;
-	// const foundUser = await User.findOne({ _id: user._id });
-	// if (!foundUser) {
-	// 	return req.status(400).json();
-	// }
-	// const expLevel = foundUser.experienceLevel
+	const { user } = req.body;
+	const foundUser = await User.findOne({ _id: user._id });
+	if (!foundUser) {
+		return req.status(400).json();
+	}
+	const expLevel = foundUser.experienceLevel;
 	function random(items) {
 		return items[Math.floor(Math.random() * items.length)];
 	}
@@ -39,8 +37,6 @@ const createWorkout = async (req, res) => {
 			return `${Seconds} Seconds`;
 		}
 	};
-	// Delete this expLevel when Experience is finished
-	const expLevel = 24;
 	if (expLevel >= 0 && expLevel <= 10) {
 		const upperExercise = await Exercise.find({
 			targetedArea: "Upper Body",
