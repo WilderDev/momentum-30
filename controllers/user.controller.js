@@ -1,4 +1,4 @@
-const User = require("../models/user.model");
+// const User = require("../models/user.model");
 
 // const levelUp = async (req, res) => {
 //     const {user} = req.body;
@@ -7,7 +7,7 @@ const User = require("../models/user.model");
 // 		return req.status(400).json();
 // 	}
 //     const nextLevel = foundUser.experienceLevel
-    
+
 //     nextLevel = nextLevel + 1
 
 //     return nextLevel
@@ -15,4 +15,4 @@ const User = require("../models/user.model");
 //     await User.findOneAndUpdate({})
 // }
 
-module.exports = { levelUp, levelDown }
+// module.exports = { levelUp, levelDown }

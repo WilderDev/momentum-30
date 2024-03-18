@@ -4,7 +4,6 @@ require("express-async-errors");
 
 const express = require("express");
 const app = express();
-const Bot = require('./models/Bot.model');
 
 const connectToMongo = require("./lib/db/mongoose-connect");
 
