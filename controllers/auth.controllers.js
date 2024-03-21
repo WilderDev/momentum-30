@@ -79,7 +79,7 @@ const register = async (req, res) => {
   // Front end origin
   const origin =
     process.env.NODE_ENV === 'production'
-      ? 'https://momentum-30-frontend.vercel.app'
+      ? 'https://www.momentumthirty.com'
       : 'http://localhost:3000';
 
   // Utilize sendVerificationEmail help function created
