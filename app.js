@@ -30,7 +30,7 @@ app.use(
   cors({
     origin:
       process.env.NODE_ENV === 'production'
-        ? 'https://momentum-30-frontend.vercel.app'
+        ? 'https://www.momentumthirty.com'
         : 'http://localhost:3000',
     credentials: true,
   }),
