@@ -2,6 +2,7 @@
 const { model, Schema } = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+
 // * SCHEMA
 const UserSchema = new Schema({
   username: {
@@ -11,8 +12,8 @@ const UserSchema = new Schema({
     maxlength: 50,
   },
   pic: {
-    type: String
-  },  
+    type: String,
+  },
   email: {
     type: String,
     required: [true, 'Please provide an email'],
@@ -32,11 +33,11 @@ const UserSchema = new Schema({
     min: 1,
     max: 30,
     required: true,
-    default: 1
+    default: 1,
   },
   streak: {
     type: Number,
-    default: 0
+    default: 0,
   },
   role: {
     type: String,

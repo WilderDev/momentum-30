@@ -11,7 +11,7 @@ const {
   sendResetPassswordEmail,
 } = require('../lib/emails/sendEmail');
 
-const {randomBotGen } = require('../lib/utils/randomBot');
+const { randomBotGen } = require('../lib/utils/randomBot');
 // const Bot = require('../models/Bot.model');
 
 // * CONTROLLERS
@@ -34,7 +34,6 @@ const register = async (req, res) => {
 
   const verificationToken = crypto.randomBytes(40).toString('hex');
 
-
   const user = await User.create({
     username,
     email,
@@ -42,13 +41,13 @@ const register = async (req, res) => {
     role,
     verificationToken,
   });
-// ! BOT MODEL ERROR
-   // Create Three Bots
+  // ! BOT MODEL ERROR
+  // Create Three Bots
   //  const bot1 = randomBotGen();
   //  const bot2 = randomBotGen();
   //  const bot3 = randomBotGen();
- 
-   // Make 3 Bots to tie to the account
+
+  // Make 3 Bots to tie to the account
 
   //   await Bot.create({
   //    name: bot1.name,
@@ -59,7 +58,7 @@ const register = async (req, res) => {
   //    personality: bot1.personality,
   //    user: user._id,
   //  });
-  //  await Bot.create({ 
+  //  await Bot.create({
   //    name: bot2.name,
   //    gender: bot2.gender,
   //    age: bot2.age,
@@ -68,7 +67,7 @@ const register = async (req, res) => {
   //    personality: bot2.personality,
   //    user: user._id,
   //  })
-  //  await Bot.create({ 
+  //  await Bot.create({
   //    name: bot3.name,
   //    gender: bot3.gender,
   //    age: bot3.age,
@@ -78,7 +77,10 @@ const register = async (req, res) => {
   //    user: user._id,
   //  })
   // Front end origin
-  const origin = process.env.FRONTEND_ORIGIN_URL ?? 'http://localhost:3000';
+  const origin =
+    process.env.NODE_ENV === 'production'
+      ? 'https://momentum-30-frontend.vercel.app'
+      : 'http://localhost:3000';
 
   // Utilize sendVerificationEmail help function created
   await sendVerificationEmail({
